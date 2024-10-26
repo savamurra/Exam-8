@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
-import { IQuoteForm } from '../../types';
+import { useEffect, useState } from "react";
+import { IQuoteForm } from "../../types";
 import Grid from "@mui/material/Grid2";
-import { Button, MenuItem, TextField, Typography } from '@mui/material';
-import * as React from 'react';
-
+import { Button, MenuItem, TextField, Typography } from "@mui/material";
+import * as React from "react";
 
 const initialForm = {
-  author: '',
-  content: '',
-  category: '',
+  author: "",
+  content: "",
+  category: "",
 };
 
 interface Props {
@@ -16,18 +15,21 @@ interface Props {
   quoteToEdit?: IQuoteForm;
 }
 
-
-const QuotesForm: React.FC<Props> = ({submitForm, quoteToEdit}) => {
+const QuotesForm: React.FC<Props> = ({ submitForm, quoteToEdit }) => {
   const [form, setForm] = useState<IQuoteForm>(initialForm);
   const select = [
-    {value: 'Star Wars', id: "star-wars"},
-    {value: 'Famous People', id: "famous-people"},
-    {value: 'Saying', id: "saying"},
-    {value: 'Humour', id: "humour"},
-    {value: 'Motivational', id: "motivational"},
+    { value: "Star Wars", id: "star-wars" },
+    { value: "Famous People", id: "famous-people" },
+    { value: "Saying", id: "saying" },
+    { value: "Humour", id: "humour" },
+    { value: "Motivational", id: "motivational" },
   ];
 
-  const changeField = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const changeField = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
@@ -44,18 +46,15 @@ const QuotesForm: React.FC<Props> = ({submitForm, quoteToEdit}) => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    submitForm({...form});
-
+    submitForm({ ...form });
 
     setForm({ ...initialForm });
   };
-
 
   return (
     <form onSubmit={onSubmit}>
       <Typography variant="h4" sx={{ flexGrow: 1, textAlign: "center" }}>
         {quoteToEdit ? "Edit quote" : "New Quote"}
-
       </Typography>
       <Grid container spacing={2} sx={{ mx: "auto", width: "50%", mt: 4 }}>
         <Grid size={12}>
@@ -100,11 +99,7 @@ const QuotesForm: React.FC<Props> = ({submitForm, quoteToEdit}) => {
         </Grid>
 
         <Grid size={12}>
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{ width: "100%"}}
-          >
+          <Button type="submit" variant="contained" sx={{ width: "100%" }}>
             {quoteToEdit ? "Edit quote" : "Add Quote"}
           </Button>
         </Grid>

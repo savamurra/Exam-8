@@ -1,4 +1,4 @@
-export interface IQuoteForm  {
+export interface IQuoteForm {
   author: string;
   content: string;
   category: string;

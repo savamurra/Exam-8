@@ -13,7 +13,7 @@ const Navbar = () => {
               to="/"
               sx={{ flexGrow: 1, textDecoration: "none" }}
             >
-              <h3 style={{color: 'white'}}>Quotes Central</h3>
+              <h3 style={{ color: "white" }}>Quotes Central</h3>
             </Typography>
             <Button color="inherit" component={NavLink} to="/">
               Quotes
